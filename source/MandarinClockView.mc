@@ -65,11 +65,48 @@ class MandarinClockView extends WatchUi.WatchFace {
         }
     }
 
-    // TODO: decide on a decorative background, I think clouds
     function drawBackgroundDecoration(dc) {
-      dc.setColor(Application.getApp().getProperty("DesignColor"), Graphics.COLOR_TRANSPARENT);
-      dc.setPenWidth(2);
-      dc.drawCircle(dc.getWidth() / 2, dc.getHeight() / 2, 50);
+        var _yGap = 8;
+        var _yHalfGap = _yGap / 2;
+        var _xGap = 104;
+
+        // draw all the lines across
+        dc.setColor(Application.getApp().getProperty("DesignColor"), Graphics.COLOR_TRANSPARENT);
+        dc.setPenWidth(1);
+        for (var lineY  = 0; lineY < dc.getHeight(); lineY += _yGap) {
+            dc.drawLine(0, lineY, dc.getWidth(), lineY);
+        }
+
+        // draw blockers over segments of the lines and draw circles on those blockers
+        var patternOffset = 0;
+        for (var y = 0; y < dc.getHeight(); y += _yGap) {
+            patternOffset++;
+            var drawType = patternOffset % 6;
+            var xStart = 0;
+            if (drawType == 1) {
+                xStart = 3 * _xGap / 4;
+            } else if (drawType == 2) {
+                continue;
+            } else if (drawType == 3) {
+                xStart = _xGap / 4;
+            } else if (drawType == 4) {
+                continue;
+            } else if (drawType == 5) {
+                xStart = _xGap / 2;
+            }
+            for (var x = xStart; x < dc.getWidth(); x += _xGap) {
+                // draw the background blocker first
+                dc.setColor(Application.getApp().getProperty("BackgroundColor"), Graphics.COLOR_TRANSPARENT);
+                // dc.setColor(0xff0000, Graphics.COLOR_TRANSPARENT);
+                dc.fillRectangle(x - _yGap, y, 2 * _yGap, _yGap + 1);
+
+                // then draw two half circles
+                dc.setColor(Application.getApp().getProperty("DesignColor"), Graphics.COLOR_TRANSPARENT);
+                dc.setPenWidth(1);
+                dc.drawArc(x - _yGap, y + _yHalfGap, _yHalfGap, Graphics.ARC_CLOCKWISE, 90, 270);
+                dc.drawArc(x + _yGap, y + _yHalfGap, _yHalfGap, Graphics.ARC_COUNTER_CLOCKWISE, 90, 270);
+            }
+        }
     }
 
     // Update the view
@@ -144,10 +181,13 @@ class MandarinClockView extends WatchUi.WatchFace {
 
         // ==== drawing Chinese text
         if (Application.getApp().getProperty("ShowTimeOfDay")) {
+            drawChineseTextHorizontal(dc, timeOfDay, Application.getApp().getProperty("ShadowColor"), offsetX, offsetY + 3, alignment);
             drawChineseTextHorizontal(dc, timeOfDay, Application.getApp().getProperty("TimeOfDayColor"), offsetX, offsetY, alignment);
         }
 
+        drawChineseTextHorizontal(dc, hourText, Application.getApp().getProperty("ShadowColor"), offsetX, offsetY + fontWidth + paddingWidth + 3, alignment);
         drawChineseTextHorizontal(dc, hourText, Application.getApp().getProperty("HourColor"), offsetX, offsetY + fontWidth + paddingWidth, alignment);
+        drawChineseTextHorizontal(dc, minuteText, Application.getApp().getProperty("ShadowColor"), offsetX, offsetY + fontWidth * 2 + paddingWidth + 3, alignment);
         drawChineseTextHorizontal(dc, minuteText, Application.getApp().getProperty("MinuteColor"), offsetX, offsetY + fontWidth * 2 + paddingWidth, alignment);
         //drawChineseTextHorizontal(dc, "三點零八分", 0xff0000, 10, 200);
     }
