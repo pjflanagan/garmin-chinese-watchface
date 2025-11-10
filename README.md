@@ -1,7 +1,8 @@
 # Garmin Mandarin Watchface
 
-This is a branch of a Chinese watch face by Mark Kuo. I felt the watchface needed a little decoration and motion, so
-I've added a second hand and a decorative background inspired by the way clouds are frequently drawn in Asia.
+This is a branch of a Chinese watch face by Mark Kuo. I felt the watchface needed a little decoration and motion.
+I've added a second hand and a decorative background meant to resemble how dive watches often have wave backgrounds.
+These waves were inspired by the way clouds are frequently drawn in Asia.
 
 ![Screenshots](screenshots/screenshot_1.png)
 

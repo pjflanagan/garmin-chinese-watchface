@@ -3,7 +3,8 @@
     <property id="ShadowColor" type="number">0x000000</property>
     <property id="BackgroundColor" type="number">0x000055</property>
     <property id="DesignColor" type="number">0x0055aa</property>
-    <property id="TimeOfDayColor" type="number">0xaaaaaa</property>
+
+    <property id="TimeOfDayColor" type="number">0xaaaaff</property>
     <property id="HourColor" type="number">0x00ffaa</property>
     <property id="MinuteColor" type="number">0xffffff</property>
 
