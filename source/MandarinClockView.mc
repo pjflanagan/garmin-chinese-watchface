@@ -177,8 +177,6 @@ class MandarinClockView extends WatchUi.WatchFace {
             }
         }
 
-        // TODO: change color base on the time of the day
-
         // ==== drawing Chinese text
         if (Application.getApp().getProperty("ShowTimeOfDay")) {
             drawChineseTextHorizontal(dc, timeOfDay, Application.getApp().getProperty("ShadowColor"), offsetX, offsetY + 3, alignment);
