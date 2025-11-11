@@ -14,3 +14,7 @@ TODO:
       alt="Available on Garmin Connect IQ"
       height="90">](https://apps.garmin.com/en-US/apps/1bc3faea-050d-40ed-811d-506de3f2019b) -->
 
+
+## Notes
+
+- [Garmin Color Palette](https://lospec.com/palette-list/6-bit-rgb)
