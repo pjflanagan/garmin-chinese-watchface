@@ -2,13 +2,18 @@
 # v1.0.1
 - [x] make second hand wider
 - [ ] Update admin things
-  - [ ] documentation (credits)
-  - [ ] licensing
-  - [ ] promo-images
+  - [x] documentation (credits)
+  - [x] licensing
+  - [x] promo-images
   - [ ] Launcher icon
 
 # v1.0.2
-- [ ] Background color changes based on time of day, black at night
+- [ ] Background color changes based on time of day
+  - [ ] yellow at sunrise
+  - [ ] brighter blue at mid day
+  - [ ] orange at sunset
+  - [ ] purple in evening
+  - [ ] black at night
 
 # v1.1.0
-- [ ] Add day of week counter
+- [ ] Add day of week line
