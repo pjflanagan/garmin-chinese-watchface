@@ -36,18 +36,22 @@ class Background extends WatchUi.Drawable {
     var patternOffset = 4; // starting at 4, 0 is too symmetrical
     for (var y = 0; y < dc.getHeight(); y += _yGap) {
       patternOffset++;
-      var drawType = patternOffset % 6;
+      var drawType = patternOffset % 8;
       var xStart = 0;
       if (drawType == 1) {
-        xStart = (3 * _xGap) / 4;
+        xStart = (3 * _xGap) / 5;
       } else if (drawType == 2) {
         continue;
       } else if (drawType == 3) {
-        xStart = _xGap / 4;
+        xStart = (_xGap) / 5;
       } else if (drawType == 4) {
-        continue;
+        xStart = (4 * _xGap) / 5;
       } else if (drawType == 5) {
-        xStart = _xGap / 2;
+        continue;
+      } else if (drawType == 6) {
+        xStart = (3 * _xGap) / 5;
+      } else if (drawType == 7) {
+        xStart = (2 * _xGap) / 5;
       }
       for (var x = xStart; x < dc.getWidth(); x += _xGap) {
         // draw the background blocker first
