@@ -1,3 +1,6 @@
+
+![Screenshots](images/PromoBanner.jpg)
+
 # Garmin Chinese Watchface
 
 View the time in Chinese, great for students!
@@ -10,7 +13,6 @@ To make the watch feel a more alive, I've added second hand.
 Inspired by how dive watches often have wave backgrounds, 
 I've also added a decorative wave background meant to resemble the way clouds are frequently drawn in Asia.
 
-![Screenshots](screenshots/screenshot_1.png)
 
 ## Download
 
