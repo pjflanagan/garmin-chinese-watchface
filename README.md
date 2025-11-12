@@ -3,26 +3,21 @@
 
 # Garmin Chinese Watchface
 
-View the time in Chinese, great for students!
+View the time in Chinese, great for students! Available on Garmin ConnectIQ soon!
 
 ## About
 
 This is a branch of a [garmin-mandarin-clock](https://github.com/starryalley/garmin-mandarin-clock) by [Mark Kuo](https://github.com/starryalley).
-I love using this watch face, but felt it could use a little motion and decoration.
-To make the watch feel a more alive, I've added second hand.
+I love using this watch face, but felt it could use a little decoration and some motion.
 Inspired by how dive watches often have wave backgrounds, 
-I've also added a decorative wave background meant to resemble the way clouds are frequently drawn in Asia.
+I added a wave background of my own, meant to resemble the way clouds are often drawn in Asia.
+I've also added a secondhand to make the watch feel a more alive.
 
 
-## Download
+## Develop
 
-<!-- TODO: -->
+See the [Garmin Developer](https://developer.garmin.com/connect-iq/overview/) page for details about the SDK, compiler, and publishing.
 
-<!-- [<img src="https://developer.garmin.com/img/connect-iq/brand/available-badge.svg"
-      alt="Available on Garmin Connect IQ"
-      height="90">](https://apps.garmin.com/en-US/apps/1bc3faea-050d-40ed-811d-506de3f2019b) -->
-
-
-## Notes
+### Notes
 
 - [Garmin Color Palette](https://lospec.com/palette-list/6-bit-rgb)
