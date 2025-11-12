@@ -1,5 +1,5 @@
 
-![Screenshots](images/PromoBanner.jpg)
+![Promo Banner](images/PromoBanner.jpg)
 
 # Garmin Chinese Watchface
 
