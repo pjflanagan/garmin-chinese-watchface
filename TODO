@@ -1,6 +1,11 @@
 
 # v1.0.1
 - [x] make second hand wider
+- [ ] Update admin things
+  - [ ] documentation (credits)
+  - [ ] licensing
+  - [ ] promo-images
+  - [ ] Launcher icon
 
 # v1.0.2
 - [ ] Background color changes based on time of day, black at night

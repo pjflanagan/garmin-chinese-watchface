@@ -1,4 +1,8 @@
-# Garmin Mandarin Watchface
+# Garmin Chinese Watchface
+
+View the time of day in Chinese
+
+## About
 
 This is a branch of a Chinese watch face by Mark Kuo. I felt the watchface needed a little decoration and motion.
 I've added a second hand and a decorative background meant to resemble how dive watches often have wave backgrounds.

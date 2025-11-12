@@ -1,7 +1,7 @@
 using Toybox.Application;
 using Toybox.WatchUi;
 
-class MandarinClockApp extends Application.AppBase {
+class ChineseWatchfaceApp extends Application.AppBase {
 
     function initialize() {
         AppBase.initialize();
@@ -17,7 +17,7 @@ class MandarinClockApp extends Application.AppBase {
 
     // Return the initial view of your application here
     function getInitialView() {
-        return [ new MandarinClockView() ];
+        return [ new ChineseWatchfaceView() ];
     }
 
     // New app settings have been received so trigger a UI update

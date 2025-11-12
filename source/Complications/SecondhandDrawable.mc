@@ -3,8 +3,8 @@ import Toybox.Graphics;
 import Toybox.WatchUi;
 
 module Complications {
-  class HourRingDrawable extends WatchUi.Drawable {
-    private var _model as Complications.HourRingModel;
+  class SecondhandDrawable extends WatchUi.Drawable {
+    private var _model as Complications.SecondhandModel;
 
     // _x and _y should be set to the center of the watch
     private var _x as Number;
@@ -23,7 +23,7 @@ module Complications {
           :radius as Numeric,
         }
     ) {
-      _model = new Complications.HourRingModel();
+      _model = new Complications.SecondhandModel();
       _y = params[:y];
       _x = params[:x];
       _radius = params[:radius];

@@ -7,7 +7,7 @@ import Toybox.Time;
 import Toybox.Complications;
 
 module Complications {
-  class HourRingModel {
+  class SecondhandModel {
     public var _secondOfMinute as Number; //[0, 59]
 
     public function initialize() {

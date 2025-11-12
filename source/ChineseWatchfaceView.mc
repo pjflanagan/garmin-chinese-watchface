@@ -4,7 +4,7 @@ using Toybox.System;
 using Toybox.Lang;
 using Toybox.Application;
 
-class MandarinClockView extends WatchUi.WatchFace {
+class ChineseWatchfaceView extends WatchUi.WatchFace {
     hidden var fontWidth;
     hidden var font;
     hidden var fontData;
@@ -62,6 +62,17 @@ class MandarinClockView extends WatchUi.WatchFace {
             if (chToIndexMap.hasKey(ch)) {
                 drawTiles(dc, fontData[chToIndexMap.get(ch)], font, x + i*fontWidth, y);
             }
+        }
+    }
+
+    // copied from https://github.com/sunpazed/garmin-tilemapper
+    function drawTiles(dc, data, font, xoff, yoff) {
+        for(var i = 0; i < data.size(); i++) {
+            var packed_value = data[i];
+	        var char = (packed_value&0x00000FFF);
+	        var xpos = (packed_value&0x003FF000)>>12;
+	        var ypos = (packed_value&0xFFC00000)>>22;
+	        dc.drawText(xoff + xpos, yoff + ypos, font, (char.toNumber()).toChar(), Graphics.TEXT_JUSTIFY_LEFT);
         }
     }
 
@@ -141,7 +152,6 @@ class MandarinClockView extends WatchUi.WatchFace {
         drawChineseTextHorizontal(dc, hourText, Application.getApp().getProperty("HourColor"), offsetX, offsetY + fontWidth + paddingWidth, alignment);
         drawChineseTextHorizontal(dc, minuteText, Application.getApp().getProperty("ShadowColor"), offsetX, offsetY + fontWidth * 2 + paddingWidth + 3, alignment);
         drawChineseTextHorizontal(dc, minuteText, Application.getApp().getProperty("MinuteColor"), offsetX, offsetY + fontWidth * 2 + paddingWidth, alignment);
-        //drawChineseTextHorizontal(dc, "三點零八分", 0xff0000, 10, 200);
     }
 
     function onHide() {
@@ -151,16 +161,5 @@ class MandarinClockView extends WatchUi.WatchFace {
     }
 
     function onEnterSleep() {
-    }
-
-    // copied from https://github.com/sunpazed/garmin-tilemapper
-    function drawTiles(dc, data, font, xoff, yoff) {
-        for(var i = 0; i < data.size(); i++) {
-            var packed_value = data[i];
-	        var char = (packed_value&0x00000FFF);
-	        var xpos = (packed_value&0x003FF000)>>12;
-	        var ypos = (packed_value&0xFFC00000)>>22;
-	        dc.drawText(xoff + xpos, yoff + ypos, font, (char.toNumber()).toChar(), Graphics.TEXT_JUSTIFY_LEFT);
-        }
     }
 }
