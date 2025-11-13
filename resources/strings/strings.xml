@@ -1,5 +1,10 @@
 <strings>
-    <string id="AppName">Chinese Watchface</string>
+    <string id="AppName">Chinese WatchFace</string>
+
+    <string id="Waves">Waves Theme</string>
+    <string id="Sky">Sky Theme</string>
+    <string id="Night">Night Theme</string>
+    <string id="ChineseNewYear">Chinese New Year Theme</string>
 
     <string id="OffsetXTitle">Left or Right Margin (pixels)</string>
     <string id="OffsetYTitle">Top Margin (pixels)</string>

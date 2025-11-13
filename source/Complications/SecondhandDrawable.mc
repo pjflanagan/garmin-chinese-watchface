@@ -4,8 +4,8 @@ import Toybox.WatchUi;
 import Toybox.Application.Properties;
 
 module Complications {
-  class SecondhandDrawable extends WatchUi.Drawable {
-    private var _model as Complications.SecondhandModel;
+  class SecondHandDrawable extends WatchUi.Drawable {
+    private var _model as Complications.SecondHandModel;
 
     // _x and _y should be set to the center of the watch
     private var _x as Number;
@@ -24,7 +24,7 @@ module Complications {
           :radius as Numeric,
         }
     ) {
-      _model = new Complications.SecondhandModel();
+      _model = new Complications.SecondHandModel();
       _y = params[:y];
       _x = params[:x];
       _radius = params[:radius];
@@ -46,7 +46,7 @@ module Complications {
     public function draw(dc as Dc) as Void {
       _model.updateModel();
 
-      // secondhand ring
+      // second hand ring
       var color = Properties.getValue("HourColor");
       var secondAngle = getSecondOfMinuteAngle(_model._secondOfMinute);
       dc.setColor(color, Graphics.COLOR_TRANSPARENT);

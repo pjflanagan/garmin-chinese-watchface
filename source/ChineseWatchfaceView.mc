@@ -4,7 +4,7 @@ using Toybox.System;
 using Toybox.Lang;
 using Toybox.Application.Properties;
 
-class ChineseWatchfaceView extends WatchUi.WatchFace {
+class ChineseWatchFaceView extends WatchUi.WatchFace {
     hidden var fontWidth;
     hidden var font;
     hidden var fontData;

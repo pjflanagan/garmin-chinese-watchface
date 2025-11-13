@@ -1,6 +1,15 @@
 <settings>
     <setting propertyKey="@Properties.AlignText" title="@Strings.AlignTextTitle">
         <settingConfig type="list">
+            <listEntry value="0">@Strings.Waves</listEntry>
+            <listEntry value="1">@Strings.Sky</listEntry>
+            <listEntry value="2">@Strings.Night</listEntry>
+            <listEntry value="3">@Strings.ChineseNewYear</listEntry>
+        </settingConfig>
+    </setting>
+
+    <setting propertyKey="@Properties.AlignText" title="@Strings.AlignTextTitle">
+        <settingConfig type="list">
             <listEntry value="2">@Strings.AlignLeft</listEntry>
             <listEntry value="1">@Strings.AlignCenter</listEntry>
             <listEntry value="0">@Strings.AlignRight</listEntry>

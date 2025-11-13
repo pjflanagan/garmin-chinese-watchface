@@ -1,7 +1,7 @@
 using Toybox.Application;
 using Toybox.WatchUi;
 
-class ChineseWatchfaceApp extends Application.AppBase {
+class ChineseWatchFaceApp extends Application.AppBase {
 
     function initialize() {
         AppBase.initialize();
@@ -17,7 +17,7 @@ class ChineseWatchfaceApp extends Application.AppBase {
 
     // Return the initial view of your application here
     function getInitialView() {
-        return [ new ChineseWatchfaceView() ];
+        return [ new ChineseWatchFaceView() ];
     }
 
     // New app settings have been received so trigger a UI update
