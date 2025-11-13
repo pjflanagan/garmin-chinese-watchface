@@ -7,7 +7,7 @@ import Toybox.Time;
 import Toybox.Complications;
 
 module Complications {
-  class SecondhandModel {
+  class SecondHandModel {
     public var _secondOfMinute as Number; //[0, 59]
 
     public function initialize() {

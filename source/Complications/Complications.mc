@@ -3,34 +3,18 @@ import Toybox.Graphics;
 import Toybox.Time;
 
 module Complications {
-
-  function min(a as Number, b as Number) as Number {
-    if (a < b) {
-      return a;
-    } else {
-      return b;
-    }
-  }
-
-  function abs(a as Number or Float) as Number or Float {
-    if (a < 0) {
-      return -a;
-    } else {
-      return a;
-    }
-  }
-
-  function convertSecondsToTimeString(seconds as Number) as String {
-    var hours = seconds / 3600;
-    var minutes = (seconds % 3600) / 60;
-    var secs = seconds % 60;
-
-    var time = minutes.format("00") + ":" + secs.format("00");
-    if (hours > 0) {
-      time = hours + ":" + time;
-    }
-    return time;
-  }
+  
+  // [timeOfDayColor, hourColor, minuteColor, shadowColor]
+  var THEME as Array<Array<Number>> = [
+      [0x55aaff, 0x00ffaa, 0xffffff, 0x000000], // 0 waves
+      [0x55aaff, 0xffff55, 0xffffff, 0x000000], // 1 sky
+      [0xff55aa, 0xff00aa, 0xffffff, 0x000000], // 2 night
+      [0x55aaff, 0x0055ff, 0x000000, 0xffffff], // 3 snow
+      [0xffffaa, 0xff55aa, 0xffffff, 0x000000], // 4 lotus
+      [0xffff55, 0xffff00, 0xffffff, 0x000000], // 5 chinese new year
+      [0xaaffaa, 0xffaa00, 0xffffff, 0x000000], // 6 green tea
+      [0xffffaa, 0xffffff, 0xffffff, 0x000000], // 7 boba
+  ];
 
   function normalizeDegrees(degrees as Number) as Number {
     if (degrees < 0) {
@@ -39,11 +23,5 @@ module Complications {
       return degrees - 360;
     }
     return degrees;
-  }
-
-  function convertMetersPerSecondToMilesPerHour(
-    metersPerSecond as Float
-  ) as Float {
-    return metersPerSecond * 2.23694; // 1 m/s = 2.23694 mph
   }
 }

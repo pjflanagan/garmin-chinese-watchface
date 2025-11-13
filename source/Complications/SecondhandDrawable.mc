@@ -4,8 +4,8 @@ import Toybox.WatchUi;
 import Toybox.Application.Properties;
 
 module Complications {
-  class SecondhandDrawable extends WatchUi.Drawable {
-    private var _model as Complications.SecondhandModel;
+  class SecondHandDrawable extends WatchUi.Drawable {
+    private var _model as Complications.SecondHandModel;
 
     // _x and _y should be set to the center of the watch
     private var _x as Number;
@@ -13,7 +13,7 @@ module Complications {
     private var _radius as Number;
 
     // NOTE: half of this goes off screen, do double the visible width
-    private const _segmentWidthSecond = 3;
+    private const _segmentWidthSecond = 6;
 
     public function initialize(
       params as
@@ -24,7 +24,7 @@ module Complications {
           :radius as Numeric,
         }
     ) {
-      _model = new Complications.SecondhandModel();
+      _model = new Complications.SecondHandModel();
       _y = params[:y];
       _x = params[:x];
       _radius = params[:radius];
@@ -39,19 +39,22 @@ module Complications {
     }
 
     private function getSecondOfMinuteAngle(seconds as Number) as Number {
-      var degrees = (seconds * -90) / 15 + 270;
+      var degrees = (seconds * -90) / 15 + 90;
       return normalizeDegrees(degrees);
     }
 
     public function draw(dc as Dc) as Void {
       _model.updateModel();
 
-      // secondhand ring
-      var color = Properties.getValue("HourColor");
-      var secondAngle = getSecondOfMinuteAngle(_model._secondOfMinute);
+      // second hand ring
+      var theme = Properties.getValue("Theme");
+      var color = Complications.THEME[theme][1]; // hourColor
+
       dc.setColor(color, Graphics.COLOR_TRANSPARENT);
       dc.setPenWidth(_segmentWidthSecond);
-      dc.drawArc(_x, _y, _radius, Graphics.ARC_CLOCKWISE, 270, secondAngle);
+
+      var secondAngle = getSecondOfMinuteAngle(_model._secondOfMinute);
+      dc.drawArc(_x, _y, _radius, Graphics.ARC_CLOCKWISE, 90, secondAngle);
     }
   }
 }
