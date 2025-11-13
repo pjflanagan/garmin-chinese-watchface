@@ -1,15 +1,9 @@
 <properties>
-
     <property id="Theme" type="number">0</property>
+    <property id="AlignText" type="number">2</property>
 
-    <property id="ShadowColor" type="number">0x000000</property>
-    <property id="TimeOfDayColor" type="number">0x55aaff</property>
-    <property id="HourColor" type="number">0x00ffaa</property>
-    <property id="MinuteColor" type="number">0xffffff</property>
-
+    <!-- TODO: these need to be: comfortable, cozy, cramped -->
     <property id="OffsetX" type="number">30</property>
     <property id="OffsetY" type="number">80</property>
     <property id="Padding" type="number">10</property>
-
-    <property id="AlignText" type="number">2</property>
 </properties>

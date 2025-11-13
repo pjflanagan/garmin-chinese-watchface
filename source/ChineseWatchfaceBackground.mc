@@ -8,11 +8,12 @@ class ChineseWatchFaceBackground extends WatchUi.Drawable {
   private var _yHalfGap = _yGap / 2;
   private var _xGap = 104;
 
+  // [backgroundColor, waveColor]
   private const _themes = [
     [0x000055, 0x0000aa], // waves
     [0x000000, 0x000055], // night
     [0x000055, 0x555555], // sky
-    [0x550000, 0xaa0000], // chinese new year
+    [0x550000, 0xaaaa00], // chinese new year
   ];
 
   function initialize() {

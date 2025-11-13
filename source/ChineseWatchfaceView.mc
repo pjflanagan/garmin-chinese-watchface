@@ -3,6 +3,7 @@ using Toybox.Graphics;
 using Toybox.System;
 using Toybox.Lang;
 using Toybox.Application.Properties;
+using Complications;
 
 class ChineseWatchFaceView extends WatchUi.WatchFace {
     hidden var fontWidth;
@@ -81,8 +82,11 @@ class ChineseWatchFaceView extends WatchUi.WatchFace {
         // Call the parent onUpdate function to redraw the layout
         View.onUpdate(dc);
 
+        var timeOfDayColor = Complications.THEME[Properties.getValue("Theme")][0];
+        var hourColor = Complications.THEME[Properties.getValue("Theme")][1];
+        var minuteColor = Complications.THEME[Properties.getValue("Theme")][2];
+
         var offsetX = Properties.getValue("OffsetX");
-        
         var offsetY = Properties.getValue("OffsetY");
         var paddingWidth = Properties.getValue("Padding");
         var alignment = Properties.getValue("AlignText");
@@ -144,14 +148,14 @@ class ChineseWatchFaceView extends WatchUi.WatchFace {
         }
 
         // ==== drawing Chinese text
-        drawChineseTextHorizontal(dc, timeOfDay, Properties.getValue("ShadowColor"), offsetX, offsetY + 3, alignment);
-        drawChineseTextHorizontal(dc, timeOfDay, Properties.getValue("TimeOfDayColor"), offsetX, offsetY, alignment);
+        drawChineseTextHorizontal(dc, timeOfDay, 0x000000, offsetX, offsetY + 3, alignment);
+        drawChineseTextHorizontal(dc, timeOfDay, timeOfDayColor, offsetX, offsetY, alignment);
 
-        drawChineseTextHorizontal(dc, hourText, Properties.getValue("ShadowColor"), offsetX, offsetY + fontWidth + paddingWidth + 3, alignment);
-        drawChineseTextHorizontal(dc, hourText, Properties.getValue("HourColor"), offsetX, offsetY + fontWidth + paddingWidth, alignment);
+        drawChineseTextHorizontal(dc, hourText, 0x000000, offsetX, offsetY + fontWidth + paddingWidth + 3, alignment);
+        drawChineseTextHorizontal(dc, hourText, hourColor, offsetX, offsetY + fontWidth + paddingWidth, alignment);
         
-        drawChineseTextHorizontal(dc, minuteText, Properties.getValue("ShadowColor"), offsetX, offsetY + fontWidth * 2 + paddingWidth + 3, alignment);
-        drawChineseTextHorizontal(dc, minuteText, Properties.getValue("MinuteColor"), offsetX, offsetY + fontWidth * 2 + paddingWidth, alignment);
+        drawChineseTextHorizontal(dc, minuteText, 0x000000, offsetX, offsetY + fontWidth * 2 + paddingWidth + 3, alignment);
+        drawChineseTextHorizontal(dc, minuteText, minuteColor, offsetX, offsetY + fontWidth * 2 + paddingWidth, alignment);
     }
 
     function onHide() {

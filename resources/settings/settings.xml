@@ -1,5 +1,5 @@
 <settings>
-    <setting propertyKey="@Properties.AlignText" title="@Strings.AlignTextTitle">
+    <setting propertyKey="@Properties.Theme" title="@Strings.ThemeTitle">
         <settingConfig type="list">
             <listEntry value="0">@Strings.Waves</listEntry>
             <listEntry value="1">@Strings.Sky</listEntry>
@@ -16,6 +16,7 @@
         </settingConfig>
     </setting>
 
+    <!-- TODO: change to one single setting -->
     <setting propertyKey="@Properties.OffsetX" title="@Strings.OffsetXTitle">
         <settingConfig type="numeric" />
     </setting>

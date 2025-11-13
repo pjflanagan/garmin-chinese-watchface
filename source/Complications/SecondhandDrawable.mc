@@ -47,7 +47,8 @@ module Complications {
       _model.updateModel();
 
       // second hand ring
-      var color = Properties.getValue("HourColor");
+      var theme = Properties.getValue("Theme");
+      var color = Complications.THEME[theme][1]; // hourColor
       var secondAngle = getSecondOfMinuteAngle(_model._secondOfMinute);
       dc.setColor(color, Graphics.COLOR_TRANSPARENT);
       dc.setPenWidth(_segmentWidthSecond);
