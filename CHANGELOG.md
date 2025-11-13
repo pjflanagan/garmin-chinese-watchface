@@ -13,13 +13,14 @@
 - [ ] Remove spacing with numbers in favor of named settings
   - [ ] Space from the center
 
-# v1.0.4
+# v1.0.4 2025-11-13
+
+**Submission pending 2025-11-13**
+
 - Remove time of day change in favor of themes
 - Second hand starts at the top of the screen like a normal second hand
 
 # v1.0.3 2025-11-13
-
-**Submission pending 2025-11-13**
 
 - background changes with time of day
 - remove unnecessary settings
