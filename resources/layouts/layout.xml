@@ -1,6 +1,5 @@
 <layout id="WatchFace">
-    <drawable class="Background" />
-    <label id="TimeLabel" x="center" y="center" font="Graphics.FONT_LARGE" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Graphics.COLOR_BLUE" />
+    <drawable class="ChineseWatchfaceBackground" />
     <drawable id="Secondhand" class="Complications.SecondhandDrawable">
         <param name="x">dc.getWidth() / 2</param>
         <param name="y">dc.getHeight() / 2</param>

@@ -2,7 +2,7 @@ using Toybox.WatchUi;
 using Toybox.Graphics;
 using Toybox.System;
 using Toybox.Lang;
-using Toybox.Application;
+using Toybox.Application.Properties;
 
 class ChineseWatchfaceView extends WatchUi.WatchFace {
     hidden var fontWidth;
@@ -15,7 +15,7 @@ class ChineseWatchfaceView extends WatchUi.WatchFace {
 
     function onLayout(dc) {
         setLayout(Rez.Layouts.WatchFace(dc));
-        // initialise Chinese font
+        // initialize Chinese font
         var shape = System.getDeviceSettings().screenShape;
         font = WatchUi.loadResource(Rez.Fonts.font_ch);
         fontData = WatchUi.loadResource(Rez.JsonData.fontData);
@@ -66,13 +66,13 @@ class ChineseWatchfaceView extends WatchUi.WatchFace {
     }
 
     // copied from https://github.com/sunpazed/garmin-tilemapper
-    function drawTiles(dc, data, font, xoff, yoff) {
+    function drawTiles(dc, data, font, xOffset, yOffset) {
         for(var i = 0; i < data.size(); i++) {
-            var packed_value = data[i];
-	        var char = (packed_value&0x00000FFF);
-	        var xpos = (packed_value&0x003FF000)>>12;
-	        var ypos = (packed_value&0xFFC00000)>>22;
-	        dc.drawText(xoff + xpos, yoff + ypos, font, (char.toNumber()).toChar(), Graphics.TEXT_JUSTIFY_LEFT);
+            var packedValue = data[i];
+	        var char = (packedValue&0x00000FFF);
+	        var xPosition = (packedValue&0x003FF000)>>12;
+	        var yPosition = (packedValue&0xFFC00000)>>22;
+	        dc.drawText(xOffset + xPosition, yOffset + yPosition, font, (char.toNumber()).toChar(), Graphics.TEXT_JUSTIFY_LEFT);
         }
     }
 
@@ -81,10 +81,11 @@ class ChineseWatchfaceView extends WatchUi.WatchFace {
         // Call the parent onUpdate function to redraw the layout
         View.onUpdate(dc);
 
-        var offsetX = Application.getApp().getProperty("OffsetX");
-        var offsetY = Application.getApp().getProperty("OffsetY");
-        var paddingWidth = Application.getApp().getProperty("Padding");
-        var alignment = Application.getApp().getProperty("AlignText");
+        var offsetX = Properties.getValue("OffsetX");
+        
+        var offsetY = Properties.getValue("OffsetY");
+        var paddingWidth = Properties.getValue("Padding");
+        var alignment = Properties.getValue("AlignText");
 
         // Get the current time and format it correctly
         var clockTime = System.getClockTime();
@@ -143,14 +144,14 @@ class ChineseWatchfaceView extends WatchUi.WatchFace {
         }
 
         // ==== drawing Chinese text
-        drawChineseTextHorizontal(dc, timeOfDay, Application.getApp().getProperty("ShadowColor"), offsetX, offsetY + 3, alignment);
-        drawChineseTextHorizontal(dc, timeOfDay, Application.getApp().getProperty("TimeOfDayColor"), offsetX, offsetY, alignment);
+        drawChineseTextHorizontal(dc, timeOfDay, Properties.getValue("ShadowColor"), offsetX, offsetY + 3, alignment);
+        drawChineseTextHorizontal(dc, timeOfDay, Properties.getValue("TimeOfDayColor"), offsetX, offsetY, alignment);
 
-        drawChineseTextHorizontal(dc, hourText, Application.getApp().getProperty("ShadowColor"), offsetX, offsetY + fontWidth + paddingWidth + 3, alignment);
-        drawChineseTextHorizontal(dc, hourText, Application.getApp().getProperty("HourColor"), offsetX, offsetY + fontWidth + paddingWidth, alignment);
+        drawChineseTextHorizontal(dc, hourText, Properties.getValue("ShadowColor"), offsetX, offsetY + fontWidth + paddingWidth + 3, alignment);
+        drawChineseTextHorizontal(dc, hourText, Properties.getValue("HourColor"), offsetX, offsetY + fontWidth + paddingWidth, alignment);
         
-        drawChineseTextHorizontal(dc, minuteText, Application.getApp().getProperty("ShadowColor"), offsetX, offsetY + fontWidth * 2 + paddingWidth + 3, alignment);
-        drawChineseTextHorizontal(dc, minuteText, Application.getApp().getProperty("MinuteColor"), offsetX, offsetY + fontWidth * 2 + paddingWidth, alignment);
+        drawChineseTextHorizontal(dc, minuteText, Properties.getValue("ShadowColor"), offsetX, offsetY + fontWidth * 2 + paddingWidth + 3, alignment);
+        drawChineseTextHorizontal(dc, minuteText, Properties.getValue("MinuteColor"), offsetX, offsetY + fontWidth * 2 + paddingWidth, alignment);
     }
 
     function onHide() {

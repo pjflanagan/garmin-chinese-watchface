@@ -1,6 +1,7 @@
 import Toybox.Lang;
 import Toybox.Graphics;
 import Toybox.WatchUi;
+import Toybox.Application.Properties;
 
 module Complications {
   class SecondhandDrawable extends WatchUi.Drawable {
@@ -46,8 +47,9 @@ module Complications {
       _model.updateModel();
 
       // secondhand ring
+      var color = Properties.getValue("HourColor");
       var secondAngle = getSecondOfMinuteAngle(_model._secondOfMinute);
-      dc.setColor(Application.getApp().getProperty("HourColor"), Graphics.COLOR_TRANSPARENT);
+      dc.setColor(color, Graphics.COLOR_TRANSPARENT);
       dc.setPenWidth(_segmentWidthSecond);
       dc.drawArc(_x, _y, _radius, Graphics.ARC_CLOCKWISE, 270, secondAngle);
     }

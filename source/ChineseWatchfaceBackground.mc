@@ -2,13 +2,13 @@ using Toybox.WatchUi;
 using Toybox.Application;
 using Toybox.Graphics;
 
-class Background extends WatchUi.Drawable {
+class ChineseWatchfaceBackground extends WatchUi.Drawable {
   private var _yGap = 8;
   private var _yHalfGap = _yGap / 2;
   private var _xGap = 104;
 
   private var _nightTheme = [0x000000, 0x000055];
-  private var _timeTheme = [
+  private const _timeTheme = [
     _nightTheme, // night
     [0x000055, 0x550055], // sunrise
     [0x000055, 0x0000aa], // morning
@@ -18,7 +18,7 @@ class Background extends WatchUi.Drawable {
     _nightTheme, // night
   ];
 
-  private var _timeThemeBreakpoints = [
+  private const _timeThemeBreakpoints = [
     6 * 60 + 30, // sunrise
     8 * 60 + 30, // morning
     10 * 60 + 30, // daytime
@@ -29,7 +29,7 @@ class Background extends WatchUi.Drawable {
 
   function initialize() {
     var dictionary = {
-      :identifier => "Background",
+      :identifier => "ChineseWatchfaceBackground",
     };
 
     Drawable.initialize(dictionary);
