@@ -1,5 +1,8 @@
 <layout id="WatchFace">
     <drawable class="ChineseWatchFaceBackground" />
+    <drawable id="TimeDrawable" class="Complications.TimeDrawable">
+        <param name="dc">dc</param>
+    </drawable>
     <drawable id="SecondHand" class="Complications.SecondHandDrawable">
         <param name="x">dc.getWidth() / 2</param>
         <param name="y">dc.getHeight() / 2</param>

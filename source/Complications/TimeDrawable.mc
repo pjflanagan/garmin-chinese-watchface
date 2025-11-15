@@ -52,13 +52,11 @@ module Complications {
       params as
         {
           :identifier as Object,
-          :x as Numeric,
-          :y as Numeric,
           :dc as Graphics.Dc,
         }
     ) {
       _model = new Complications.TimeModel();
-      _font = WatchUi.loadResource(Rez.Fonts.font_ch);
+      _font = WatchUi.loadResource(Rez.Fonts.font_zh);
       _fontData = WatchUi.loadResource(Rez.JsonData.fontData);
       _fontWidth = params[:dc].getFontHeight(_font);
 
@@ -99,7 +97,7 @@ module Complications {
       for (var i = 0; i < text.length(); i++) {
         var ch = text.substring(i, i + 1);
         if (chToIndexMap.hasKey(ch)) {
-          var data = _fontData[chToIndexMap.get(ch)];
+          var data = _fontData[chToIndexMap.get(ch)] as Array<Number>;
           drawTiles(dc, data, x + i * _fontWidth, y);
         }
       }
@@ -108,12 +106,12 @@ module Complications {
     // Sourced from https://github.com/sunpazed/garmin-tilemapper
     private function drawTiles(
       dc as Graphics.Dc,
-      data,
-      xOffset,
-      yOffset
+      data as Array<Number>,
+      xOffset as Number,
+      yOffset as Number
     ) {
       for (var i = 0; i < data.size(); i++) {
-        var packedValue = data[i];
+        var packedValue = data[i] as Number;
         var char = packedValue & 0x00000fff;
         var xPosition = (packedValue & 0x003ff000) >> 12;
         var yPosition = (packedValue & 0xffc00000) >> 22;
@@ -128,7 +126,7 @@ module Complications {
     }
 
     // Update the view
-    function draw(dc) {
+    function draw(dc as Graphics.Dc) as Void {
       var theme = Properties.getValue("Theme");
       var themeColorPalette = Complications.THEME[theme];
       var timeOfDayColor = themeColorPalette[0];

@@ -1,7 +1,7 @@
 <resources>
 
     <fonts>
-      <font id="font_ch" filename="font.fnt" antialias="true"/>
+      <font id="font_zh" filename="font.fnt" antialias="true"/>
     </fonts>
 
     <jsonData id="fontData" filename="font.json"/>
