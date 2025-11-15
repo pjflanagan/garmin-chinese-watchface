@@ -1,7 +1,7 @@
-using Toybox.WatchUi;
-using Toybox.Application;
-using Toybox.Graphics;
-using Toybox.Application.Properties;
+import Toybox.WatchUi;
+import Toybox.Application;
+import Toybox.Graphics;
+import Toybox.Application.Properties;
 
 class ChineseWatchFaceBackground extends WatchUi.Drawable {
   private var _yGap = 8;
