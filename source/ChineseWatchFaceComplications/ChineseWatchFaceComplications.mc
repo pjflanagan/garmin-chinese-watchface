@@ -2,7 +2,7 @@ import Toybox.Lang;
 import Toybox.Graphics;
 import Toybox.Time;
 
-module Complications {
+module ChineseWatchFaceComplications {
   
   // [timeOfDayColor, hourColor, minuteColor, shadowColor]
   var THEME as Array<Array<Number>> = [

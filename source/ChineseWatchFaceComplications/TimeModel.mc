@@ -4,9 +4,8 @@ import Toybox.Lang;
 import Toybox.Graphics;
 import Toybox.System;
 import Toybox.Time;
-import Toybox.Complications;
 
-module Complications {
+module ChineseWatchFaceComplications {
   class TimeModel {
     public var _timeOfDayText as String;
     public var _hourText as String;

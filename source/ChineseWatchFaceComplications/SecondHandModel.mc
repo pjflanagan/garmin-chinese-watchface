@@ -4,9 +4,8 @@ import Toybox.Lang;
 import Toybox.Graphics;
 import Toybox.System;
 import Toybox.Time;
-import Toybox.Complications;
 
-module Complications {
+module ChineseWatchFaceComplications {
   class SecondHandModel {
     public var _secondOfMinute as Number; //[0, 59]
 

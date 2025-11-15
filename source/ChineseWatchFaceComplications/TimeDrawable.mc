@@ -4,11 +4,11 @@ import Toybox.System;
 import Toybox.Lang;
 import Toybox.Application.Properties;
 import Toybox.Graphics;
-import Complications;
+import ChineseWatchFaceComplications;
 
-module Complications {
+module ChineseWatchFaceComplications {
   class TimeDrawable extends WatchUi.Drawable {
-    private var _model as Complications.TimeModel;
+    private var _model as ChineseWatchFaceComplications.TimeModel;
     private var _fontWidth;
     private var _font as WatchUi.Resource?;
     private var _fontData as WatchUi.Resource?;
@@ -55,7 +55,7 @@ module Complications {
           :dc as Graphics.Dc,
         }
     ) {
-      _model = new Complications.TimeModel();
+      _model = new ChineseWatchFaceComplications.TimeModel();
       _font = WatchUi.loadResource(Rez.Fonts.font_zh);
       _fontData = WatchUi.loadResource(Rez.JsonData.fontData);
       _fontWidth = params[:dc].getFontHeight(_font);
@@ -128,7 +128,7 @@ module Complications {
     // Update the view
     function draw(dc as Graphics.Dc) as Void {
       var theme = Properties.getValue("Theme");
-      var themeColorPalette = Complications.THEME[theme];
+      var themeColorPalette = ChineseWatchFaceComplications.THEME[theme];
       var timeOfDayColor = themeColorPalette[0];
       var hourColor = themeColorPalette[1];
       var minuteColor = themeColorPalette[2];

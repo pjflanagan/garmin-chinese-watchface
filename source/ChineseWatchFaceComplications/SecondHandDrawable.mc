@@ -3,9 +3,9 @@ import Toybox.Graphics;
 import Toybox.WatchUi;
 import Toybox.Application.Properties;
 
-module Complications {
+module ChineseWatchFaceComplications {
   class SecondHandDrawable extends WatchUi.Drawable {
-    private var _model as Complications.SecondHandModel;
+    private var _model as ChineseWatchFaceComplications.SecondHandModel;
 
     // _x and _y should be set to the center of the watch
     private var _x as Number;
@@ -24,7 +24,7 @@ module Complications {
           :radius as Numeric,
         }
     ) {
-      _model = new Complications.SecondHandModel();
+      _model = new ChineseWatchFaceComplications.SecondHandModel();
       _y = params[:y];
       _x = params[:x];
       _radius = params[:radius];
@@ -48,7 +48,7 @@ module Complications {
 
       // second hand ring
       var theme = Properties.getValue("Theme");
-      var color = Complications.THEME[theme][1]; // hourColor
+      var color = ChineseWatchFaceComplications.THEME[theme][1]; // hourColor
 
       dc.setColor(color, Graphics.COLOR_TRANSPARENT);
       dc.setPenWidth(_segmentWidthSecond);
