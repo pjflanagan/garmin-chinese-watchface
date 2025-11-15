@@ -1,5 +1,5 @@
-using Toybox.Application;
-using Toybox.WatchUi;
+import Toybox.Application;
+import Toybox.WatchUi;
 
 class ChineseWatchFaceApp extends Application.AppBase {
 
