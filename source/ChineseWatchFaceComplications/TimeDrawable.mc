@@ -4,7 +4,6 @@ import Toybox.System;
 import Toybox.Lang;
 import Toybox.Application.Properties;
 import Toybox.Graphics;
-import ChineseWatchFaceComplications;
 
 module ChineseWatchFaceComplications {
   class TimeDrawable extends WatchUi.Drawable {
@@ -61,8 +60,6 @@ module ChineseWatchFaceComplications {
       _fontWidth = params[:dc].getFontHeight(_font);
 
       var options = {
-        :x => params[:x],
-        :y => params[:y],
         :identifier => params[:identifier],
       };
       Drawable.initialize(options);
