@@ -1,4 +1,6 @@
 
+# Unplanned
+- [ ] Remove: "Cannot determine if container access is using container type" error
 
 # Planned_2
 - [ ] Add smaller font with more text for date
@@ -13,10 +15,9 @@
 
 # 2025-11-14_1
 
-- [ ] Remove: "Cannot determine if container access is using container type" error
-- [x] Launcher icon says 手錶 and is correct size (40x33)
-- [x] Move the text code to a complication
-- [x] No more warnings about types
+- Launcher icon says 手錶 and is correct size (40x33)
+- Move the text code to a complication
+- No more warnings about types
 
 # 2025-11-13_2
 

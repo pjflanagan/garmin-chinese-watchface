@@ -3,6 +3,12 @@ import Toybox.Graphics;
 import Toybox.Time;
 
 module ChineseWatchFaceComplications {
+
+  var _version = "dev_1.0.5";
+
+  function isDev() as Boolean {
+    return _version.substring(0, 3).equals("dev");
+  }
   
   // [timeOfDayColor, hourColor, minuteColor, shadowColor]
   var THEME as Array<Array<Number>> = [

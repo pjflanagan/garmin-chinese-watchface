@@ -30,13 +30,30 @@ I added a wave background meant to resemble the way clouds are often drawn in As
 I've also added a second hand to make the watch feel more alive.
 
 
-## Develop
+## Development
 
 See the [Garmin Developer](https://developer.garmin.com/connect-iq/overview/) page for details about the SDK, compiler, and publishing.
 
-### Exporting
+### Run
 
-Before exporting, replace `manifest.xml` with the correct version (prod or dev).
+Go to `Run > Run without debugging` then select the device to run on.
+Note: the device selection comes up every time because we have a `.vscode/launch.json` file present.
+
+### Export
+
+Exporting the project for dev and prod release follow similar steps
+
+1. Update the version number in `ChineseWatchFaceComplications.mc`
+  - dev: use `dev_1.0.##`
+  - prod: remove `dev_` and use the same `1.0.##` that was released and tested in dev.
+2. Copy and paste the correct App UUID into `manifest.xml`
+  - prod: ensure that all the correct devices are enabled
+3. Run `Monkey C: Export Project`
+4. Upload to the Developer Dashboard and use the version number in the app
+
+### Error Reporting
+
+Run `Monkey C: Open ERA Viewer` to see error logs.
 
 ### Notes
 
