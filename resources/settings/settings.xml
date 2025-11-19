@@ -19,17 +19,4 @@
             <listEntry value="0">@Strings.AlignRight</listEntry>
         </settingConfig>
     </setting>
-
-    <!-- TODO: v1.0.4 -->
-    <setting propertyKey="@Properties.OffsetX" title="@Strings.OffsetXTitle">
-        <settingConfig type="numeric" />
-    </setting>
-
-    <setting propertyKey="@Properties.OffsetY" title="@Strings.OffsetYTitle">
-        <settingConfig type="numeric" />
-    </setting>
-
-    <setting propertyKey="@Properties.Padding" title="@Strings.PaddingTitle">
-        <settingConfig type="numeric" />
-    </setting>
 </settings>

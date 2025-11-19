@@ -47,6 +47,15 @@ module ChineseWatchFaceComplications {
       "半" => 31,
     };
 
+    private const _timeOfDayGap = 18;
+    private const _hourGap = 8;
+    private const _edgeGap = 12;
+
+    private var _radius as Number;
+    private var _timeOfDayY as Number;
+    private var _hourY as Number;
+    private var _minuteY as Number;
+
     function initialize(
       params as
         {
@@ -55,14 +64,38 @@ module ChineseWatchFaceComplications {
         }
     ) {
       _model = new ChineseWatchFaceComplications.TimeModel();
+      var dc = params[:dc];
+      _radius = dc.getHeight() / 2;
+
       _font = WatchUi.loadResource(Rez.Fonts.font_zh);
       _fontData = WatchUi.loadResource(Rez.JsonData.fontData);
-      _fontWidth = params[:dc].getFontHeight(_font);
+      _fontWidth = dc.getFontHeight(_font);
+
+      var fullHeight = 3 * _fontWidth + _timeOfDayGap + _hourGap;
+      var topY = _radius - fullHeight / 2;
+
+      _timeOfDayY = topY;
+      _hourY = topY + _fontWidth + _timeOfDayGap;
+      _minuteY = topY + _fontWidth * 2 + _timeOfDayGap + _hourGap;
 
       var options = {
         :identifier => params[:identifier],
       };
       Drawable.initialize(options);
+    }
+
+    private function getEdgeGap(width as Number, y as Number) as Number {
+      // if we are lower, use the bottom edge of the text to measure our gap
+      if (y > _radius) {
+        y = y + _fontWidth;
+      }
+
+      var chordLength = ChineseWatchFaceComplications.getChordLength(
+        width / 2,
+        _radius - y
+      ).toNumber();
+
+      return (width - chordLength) / 2 + _edgeGap;
     }
 
     private function drawChineseTextHorizontal(
@@ -79,14 +112,16 @@ module ChineseWatchFaceComplications {
 
       // modify x according to justification
       var justification = Properties.getValue("AlignText");
-      var x = Properties.getValue("OffsetX");
-      var pixels = text.length() * _fontWidth;
+      var textWidth = text.length() * _fontWidth;
+      var edgeGap = getEdgeGap(dc.getWidth(), y);
+
+      var x = edgeGap; // default left
       switch (justification) {
         case Graphics.TEXT_JUSTIFY_CENTER:
-          x = dc.getWidth() / 2 - pixels / 2;
+          x = dc.getWidth() / 2 - textWidth / 2;
           break;
         case Graphics.TEXT_JUSTIFY_RIGHT:
-          x = dc.getWidth() - pixels - x;
+          x = dc.getWidth() - textWidth - edgeGap;
           break;
       }
 
@@ -132,48 +167,31 @@ module ChineseWatchFaceComplications {
       var shadowColor = themeColorPalette[3];
 
       // TODO: v1.0.4
-      var offsetY = Properties.getValue("OffsetY") as Number;
-      var paddingWidth = Properties.getValue("Padding");
 
       // ==== drawing Chinese text
       drawChineseTextHorizontal(
         dc,
         _model._timeOfDayText,
         shadowColor,
-        offsetY + 2
+        _timeOfDayY + 2
       );
       drawChineseTextHorizontal(
         dc,
         _model._timeOfDayText,
         timeOfDayColor,
-        offsetY
+        _timeOfDayY
       );
 
-      drawChineseTextHorizontal(
-        dc,
-        _model._hourText,
-        shadowColor,
-        offsetY + _fontWidth + paddingWidth + 2
-      );
-      drawChineseTextHorizontal(
-        dc,
-        _model._hourText,
-        hourColor,
-        offsetY + _fontWidth + paddingWidth
-      );
+      drawChineseTextHorizontal(dc, _model._hourText, shadowColor, _hourY + 2);
+      drawChineseTextHorizontal(dc, _model._hourText, hourColor, _hourY);
 
       drawChineseTextHorizontal(
         dc,
         _model._minuteText,
         shadowColor,
-        offsetY + _fontWidth * 2 + paddingWidth + 2
+        _minuteY + 2
       );
-      drawChineseTextHorizontal(
-        dc,
-        _model._minuteText,
-        minuteColor,
-        offsetY + _fontWidth * 2 + paddingWidth
-      );
+      drawChineseTextHorizontal(dc, _model._minuteText, minuteColor, _minuteY);
     }
   }
 }

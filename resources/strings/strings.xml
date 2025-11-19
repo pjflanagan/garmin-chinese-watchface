@@ -15,9 +15,4 @@
     <string id="AlignLeft">Align Left</string>
     <string id="AlignCenter">Align Center</string>
     <string id="AlignRight">Align Right</string>
-
-    <!-- TODO: v1.0.4 -->
-    <string id="OffsetXTitle">Left or Right Margin (pixels)</string>
-    <string id="OffsetYTitle">Top Margin (pixels)</string>
-    <string id="PaddingTitle">Spacing after Time/Period of Day text (pixels)</string>
 </strings>

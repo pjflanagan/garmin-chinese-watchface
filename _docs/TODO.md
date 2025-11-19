@@ -9,11 +9,13 @@
   - [ ] day of month
   - [ ] month of year
 
-# Planned_1
-- [ ] Remove spacing with numbers in favor of named settings
-  - [ ] Space from the center
+# 2025-11-15
+
+- Use Chord width to get distance from the edges
 
 # 2025-11-14_1
+
+**Submission accepted**
 
 - Launcher icon says 手錶 and is correct size (40x33)
 - Move the text code to a complication
