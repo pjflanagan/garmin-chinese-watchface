@@ -159,14 +159,13 @@ module ChineseWatchFaceComplications {
 
     // Update the view
     function draw(dc as Graphics.Dc) as Void {
+      _model.updateModel();
       var theme = Properties.getValue("Theme");
       var themeColorPalette = ChineseWatchFaceComplications.THEME[theme];
       var timeOfDayColor = themeColorPalette[0];
       var hourColor = themeColorPalette[1];
       var minuteColor = themeColorPalette[2];
       var shadowColor = themeColorPalette[3];
-
-      // TODO: v1.0.4
 
       // ==== drawing Chinese text
       drawChineseTextHorizontal(

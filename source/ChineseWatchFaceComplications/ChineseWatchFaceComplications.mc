@@ -4,7 +4,7 @@ import Toybox.Time;
 import Toybox.Math;
 
 module ChineseWatchFaceComplications {
-  var _version = "1.0.6";
+  var _version = "1.0.7";
 
   function isDev() as Boolean {
     return _version.substring(0, 3).equals("dev");
