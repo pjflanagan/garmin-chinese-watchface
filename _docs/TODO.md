@@ -9,6 +9,11 @@
   - [ ] day of month
   - [ ] month of year
 
+# 2025-11-30
+
+- Setting for 24 hour mode
+- No longer displaying 0 when 12am
+
 # 2025-11-15
 
 - Use Chord width to get distance from the edges

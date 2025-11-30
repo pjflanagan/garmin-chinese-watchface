@@ -26,7 +26,7 @@ class ChineseWatchFaceView extends WatchUi.WatchFace {
         dc.getWidth() / 2,
         24,
         Graphics.FONT_XTINY,
-        ChineseWatchFaceComplications._version,
+        ChineseWatchFaceComplications.getVersion(),
         Graphics.TEXT_JUSTIFY_CENTER
       );
     }

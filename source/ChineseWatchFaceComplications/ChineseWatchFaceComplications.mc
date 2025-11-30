@@ -4,11 +4,24 @@ import Toybox.Time;
 import Toybox.Math;
 
 module ChineseWatchFaceComplications {
-  var _version = "1.0.7";
+
+  // version and environment
+
+  var _version = "5.9";
+  var _environment = "dev";
 
   function isDev() as Boolean {
-    return _version.substring(0, 3).equals("dev");
+    return _environment.equals("dev");
   }
+
+  function getVersion() as String {
+    return _version;
+  }
+
+  // settings
+
+  const SETTING_MODE_12HOUR = 0;
+  const SETTING_MODE_24HOUR = 1;
 
   // [timeOfDayColor, hourColor, minuteColor, shadowColor]
   var THEME as Array<Array<Number> > = [
@@ -21,6 +34,8 @@ module ChineseWatchFaceComplications {
     [0xaaffaa, 0xffaa00, 0xffffff, 0x000000], // 6 green tea
     [0xffffaa, 0xffffff, 0xffffff, 0x000000], // 7 boba
   ];
+
+  // math
 
   function normalizeDegrees(degrees as Number) as Number {
     if (degrees < 0) {

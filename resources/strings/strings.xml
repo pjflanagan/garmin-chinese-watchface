@@ -1,6 +1,10 @@
 <strings>
     <string id="AppName">Chinese Watch Face</string>
 
+    <string id="ModeTitle">Mode</string>
+    <string id="Mode12Hour">12-Hour</string>
+    <string id="Mode24Hour">24-Hour</string>
+
     <string id="ThemeTitle">Theme</string>
     <string id="Waves">Waves</string>
     <string id="Sky">Sky</string>

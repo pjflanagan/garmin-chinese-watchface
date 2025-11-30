@@ -65,11 +65,14 @@ module ChineseWatchFaceComplications {
       }
 
       // ==== determine hour
-      if (hour > 12) {
+      var is12HourMode = Properties.getValue("Mode") == ChineseWatchFaceComplications.SETTING_MODE_12HOUR;
+      if (is12HourMode && hour > 12) {
         hour = hour - 12;
       }
-      if (hour == 2) {
-        _hourText = numberToChMap[-hour] + "點";
+      if (is12HourMode && hour == 0) {
+        _hourText = numberToChMap[12] + "點";
+      } else if (hour == 2) {
+        _hourText = numberToChMap[-2] + "點";
       } else {
         _hourText = numberToChMap[hour] + "點";
       }
