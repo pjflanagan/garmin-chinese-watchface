@@ -7,8 +7,8 @@ module ChineseWatchFaceComplications {
 
   // version and environment
 
-  var _version = "5.9";
-  var _environment = "dev";
+  var _version = "6.9";
+  var _environment = "prod";
 
   function isDev() as Boolean {
     return _environment.equals("dev");
